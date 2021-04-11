@@ -49,9 +49,7 @@ We are creating these Service using cfn (CloudFormation) templates in AWS DevOps
 
 Insert image AWS pipeline workflow 
 
- 
-
-AWS cfn Template
+ AWS cfn Template
 Here's a link to the cfn template Cloud Formation Template 
 
 AWS Work Flow 
@@ -70,7 +68,7 @@ Build application
 
 Copying the CFN Template files to build folder This CFN Template is defined to create the required service in AWS Portal 
 
-Create the artifact file in Azure DevOps. This will be used to deploy the application in multiple environments. 
+Create the artifact file in AWS DevOps. This will be used to deploy the application in multiple environments. 
 
 Release Pipeline with CD 
 
