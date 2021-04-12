@@ -31,10 +31,12 @@ Node Js
 Running this Vote App 
 
 // clone the project and start the project
-git clone https://github.com/SyrenCloud/react-votingapp strat the api  
+
+git clone https://github.com/SyrenCloud/react-votingapp start the api  
 cd api 
 npm install 
-npm run dev// start the react app 
+npm run dev
+// start the react app 
 cd my-app 
 npm install 
 npm start 
@@ -47,7 +49,12 @@ App Service - EC2
 
 We are creating these Service using cfn (CloudFormation) templates in AWS DevOps with CI-CD Pipelines. 
 
-Insert image AWS pipeline workflow 
+AWS pipeline workflow: 
+
+
+
+![pipeline-workflow](https://user-images.githubusercontent.com/82216150/114331272-4bc0ed80-9b61-11eb-956d-d9959f334c02.png)
+
 
  AWS cfn Template
 Here's a link to the cfn template Cloud Formation Template 
