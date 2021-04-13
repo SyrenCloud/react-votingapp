@@ -5,20 +5,21 @@ const path = require('path');
 const app = express(),
       bodyParser = require("body-parser");
 
+// place holder for the data
+const votes = [];
+
 
 // Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-// App
-const app = express();
 app.get('/', (req, res) => {
-  res.send('Hello World Version 1');
+  res.send('Hello World Version Updated');
 });
 
-
-// place holder for the data
-const votes = [];
+app.get('/votes', (req, res) => {
+  res.send('Hello World Version votes');
+});
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../my-app/build')));
@@ -41,7 +42,7 @@ app.post('/api/vote', (req, res) => {
   res.json("vote recorded");
 });
 
-app.get('/api/index', (req,res) => {
+app.get('/index', (req,res) => {
   res.sendFile(path.join(__dirname, '../my-app/build/index.html'));
 });
 
