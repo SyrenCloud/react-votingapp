@@ -16,19 +16,15 @@ We shall over the next few weeks showcase one application at a time built on a d
 
 About this code 
 
-This is a simple Two-Tier Architecture application developed with Node JS,  as backend api and react js for front end. This application is designed to have basic functionality to record, display and reset votes. 
+This is a simple Two-Tier Architecture application developed with Node JS,  as backend api and react js for front end. This application is designed to have basic functionality to record, display and reset data. 
 
-Architecture 
-
-Insert architecture diagram here. 
-
-Setup & Requirements 
+Setup & Requirements :
 
 Visual Studio Code
 
 Node Js
 
-Running this Vote App 
+Running this Starter App 
 
 // clone the project and start the project
 
@@ -47,46 +43,30 @@ The following services are required and we are using Aws as an example for the a
 
 App Service - EC2 
 
-We are creating these Service using cfn (CloudFormation) templates in AWS DevOps with CI-CD Pipelines. 
+We are creating these Service using cfn (CloudFormation) templates in AWS with CI-CD Pipelines. 
 
 AWS pipeline workflow: 
-
-
 
 ![pipeline-workflow](https://user-images.githubusercontent.com/82216150/114331272-4bc0ed80-9b61-11eb-956d-d9959f334c02.png)
 
 
- AWS cfn Template
-Here's a link to the cfn template Cloud Formation Template 
+Process for creating Pipe line using cloud formation Template:
 
-AWS Work Flow 
+    1.Navigate to Cloudformation/CloudPipeline.yml file in repo which you have cloned
+    2.Configure the parameters related git hub repository , with your account details
+    3.Navigate to cloud formation console in your aws account, make sure you select region as us-east-2 which have availability zones
+      for creating pipeline stack and cluster
+    4.create the pipeline stack by clicking on create new stack button
+    5.Select the upload template option, and browse the CloudPipeline.yml file modified above
+    6.Click next and in the last step, select the checkbox to create IAM resources relavant to the pipeline stack.
 
-Architecture diagram
+Once you complete above steps, navigate to aws codepipeline window, click pipelines in left pane and you will be able to see the cloud pipeline created using
+cfn template.
 
-Build Pipeline with CI 
+When you click on pipeline and navigate to details - stage, build and deploy phases will be visible where code is picked from git repo, build artifacts and deploy
+the cfn template to create the cluster and publish the artifacts to service.
 
-Whenever new code is pushed to the master branch the build pipeline will be triggered 
-
-Get the latest code from git master branch. 
-
-Restore required dependency 
-
-Build application 
-
-Copying the CFN Template files to build folder This CFN Template is defined to create the required service in AWS Portal 
-
-Create the artifact file in AWS DevOps. This will be used to deploy the application in multiple environments. 
-
-Release Pipeline with CD 
-
-This will contains all stages required such as the Dev, QA and Production. Each stage will have jobs and Tasks. 
-
-Architecture diagram
-We need to configure all the variables as per environment like (Dev, QA and Prod) 
-
-CFN Template Deployment: We are creating the Resources (App Service) defined in the CFN template 
-
-AWS App Service Deployment: We will deploy the App code from the artifact file in Build pipeline to App Service. 
-
+We can create multi stage environments , by modifying stage parameter in cloud pipeline.yml to different values like qa , prod and importing 
+template to create a stack in cloud formation console.
 
 While this is a simple example of using DevOps on a simple application, we shall at later dates provide examples of using DevOps in much more complex scenarios. 
